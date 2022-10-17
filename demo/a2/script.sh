@@ -16,6 +16,9 @@ kubectl get services
 
 sleep 30
 
+echo resetting previous nginx-ingress-controller configuration
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+
 echo creating ingress
 kubectl apply -f ../../k8s/manifests/k8s/node-ingress.yaml
 sleep 30
